@@ -7,6 +7,28 @@ from urllib.parse import SplitResult
 
 
 class URLTools:
+    """A tool class to hold utility functions for modifying URLs
+
+    Functions include things like getting the domain name, subdomain, top-level domain, etc,
+    and adding http/https to a URL
+
+    Usage::
+
+        >>> from kelmore_urls import URLTools as URLs
+        >>>
+        >>> url: str = 'https://www.google.com'
+        >>>
+        >>> URLs.domain_name(url)
+        >>> URLs.root_domain(url)
+        >>> URLs.sub_domain(url)
+        >>> URLs.top_level_domain(url)
+
+        'google'
+        'google.com'
+        'www'
+        'com'
+
+    """
 
     @staticmethod
     def add_http(url: str, https: bool = False) -> str:
@@ -18,21 +40,40 @@ class URLTools:
         return url
 
     @staticmethod
-    def domain(url: str,
-               with_suffix=True) -> str:
-        url: str = URLTools.normalize(url,
-                                      with_prefix=False,
-                                      only_valid=True,
-                                      with_suffix=False)
+    def domain_name(url: str) -> str:
+        split_net: List[str] = URLTools._split_network_location(url)
+        return split_net[-2]
+
+    @staticmethod
+    def has_protocol(url: str) -> bool:
+        return re.match(r'http(s?):', url) is not None
+
+    @staticmethod
+    def network_location(url: str) -> str:
+        url = URLTools.add_http(url)
 
         split_url: SplitResult = parse.urlsplit(url)
+        return split_url.netloc
 
-        url: str = split_url.netloc
-        if not with_suffix:
-            url_split: List[str] = url.split('.')
-            return url_split[1] if url_split[0] == 'www' else url_split[0]
+    @staticmethod
+    def protocol(url: str) -> str:
+        split_url: SplitResult = parse.urlsplit(url)
+        return split_url.scheme
 
-        return url
+    @staticmethod
+    def root_domain(url: str) -> str:
+        split_net: List[str] = URLTools._split_network_location(url)
+        return '.'.join(split_net[-2:])
+
+    @staticmethod
+    def sub_domain(url: str) -> str:
+        split_net: List[str] = URLTools._split_network_location(url)
+        return '.'.join(split_net[:-2])
+
+    @staticmethod
+    def top_level_domain(url: str) -> str:
+        split_net: List[str] = URLTools._split_network_location(url)
+        return split_net[-1]
 
     @staticmethod
     def normalize(url: str,
@@ -63,6 +104,23 @@ class URLTools:
 
         return host
 
+    @staticmethod
+    def _network_location_helper(url: str) -> str:
+        net_loc: str = URLTools.network_location(url)
+        if not net_loc:
+            raise ValueError('URL was incorrectly formatted')
+
+        return net_loc
+
+    @staticmethod
+    def _split_network_location(url: str) -> List[str]:
+        net_loc: str = URLTools._network_location_helper(url)
+        split_net: List[str] = net_loc.split('.')
+        if len(split_net) < 2:
+            raise ValueError('URL was incorrectly formatted')
+
+        return net_loc.split('.')
+
 
 class URLWrapper:
     url: str
@@ -73,8 +131,8 @@ class URLWrapper:
     def add_http(self, https: bool = False) -> URLWrapper:
         return URLWrapper(URLTools.add_http(self.url, https=https))
 
-    def domain(self, with_suffix=True) -> URLWrapper:
-        return URLWrapper(URLTools.domain(self.url, with_suffix=with_suffix))
+    def domain(self, with_suffix=True) -> str:
+        return URLTools.domain(self.url, with_suffix=with_suffix)
 
     def normalize(self,
                   with_prefix: bool = True,
