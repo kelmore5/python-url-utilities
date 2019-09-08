@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>kelmore_utils &#8212; URLs 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="URLTools" href="pages/urls.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pages/urls.html" title="URLTools"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">URLs 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="kelmore-utils">
+<h1>kelmore_utils<a class="headerlink" href="#kelmore-utils" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pages/urls.html">URLTools</a></li>
+</ul>
+</div>
+<div class="section" id="urls">
+<h2>URLs<a class="headerlink" href="#urls" title="Permalink to this headline">¶</a></h2>
+<p>URLs is a small library of URL utility functions compiled for personal needs. There’s
+nothing too fancy nor anything you can’t find from another library, but URLs consists of
+smaller functions to be used rather than relying on larger packages.</p>
+<p>Right now, this is a very small project and the functions only include ways to get the domain
+from a URL and add http to URLs missing it.</p>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>You can install this project directly from Github via:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip3.7 install git+https://github.com/kelmore5/python-url-utilities.git
+</pre></div>
+</div>
+<div class="section" id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Python 3.7</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Once installed, you can import the main class like so:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">from</span> <span class="n">kelmore_urls</span> <span class="n">import</span> <span class="n">URLTools</span> <span class="k">as</span> <span class="n">URLS</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;www.google.com&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;https://www.amazon.com&#39;</span>
+<span class="o">&gt;&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">URLS</span><span class="p">.</span><span class="n">add_http</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">https</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>    <span class="o">#</span> <span class="s1">&#39;https://www.google.com&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">URLS</span><span class="p">.</span><span class="k">domain</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>                  <span class="o">#</span> <span class="s1">&#39;amazon&#39;</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>To be updated</p>
+</div>
+<div class="section" id="urltools">
+<h2>URLTools<a class="headerlink" href="#urltools" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt>
+<em class="property">class </em><code class="sig-prename descclassname">kelmore_urls.urls.</code><code class="sig-name descname">URLTools</code></dt>
+<dd><p>A tool class to hold utility functions for modifying URLs</p>
+<p>Functions include things like getting the domain name, subdomain, top-level domain, etc,
+and adding http/https to a URL</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">kelmore_urls</span> <span class="k">import</span> <span class="n">URLTools</span> <span class="k">as</span> <span class="n">URLs</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;https://www.google.com&#39;</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">URLs</span><span class="o">.</span><span class="n">domain_name</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">URLs</span><span class="o">.</span><span class="n">root_domain</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">URLs</span><span class="o">.</span><span class="n">subdomain</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">URLs</span><span class="o">.</span><span class="n">top_level_domain</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="go">&#39;google&#39;</span>
+<span class="go">&#39;google.com&#39;</span>
+<span class="go">&#39;www&#39;</span>
+<span class="go">&#39;com&#39;</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt>
+<em class="property">static </em><code class="sig-name descname">add_http</code><span class="sig-paren">(</span><em class="sig-param">url: str</em>, <em class="sig-param">https: bool = False</em><span class="sig-paren">)</span> &#x2192; str</dt>
+<dd><p>Takes a URL and adds http (or https) to it if the protocol is not found</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">URLTools</span><span class="o">.</span><span class="n">add_http</span><span class="p">(</span><span class="s1">&#39;www.google.com&#39;</span><span class="p">,</span> <span class="n">https</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">&#39;https://www.google.com&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<em>str</em>) – An ill-formed URL with or without a protocol</p></li>
+<li><p><strong>https</strong> (<em>bool</em>) – True if protocol should be https else False (for http)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The given URL with an attached protocol</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">static </em><code class="sig-name descname">domain_name</code><span class="sig-paren">(</span><em class="sig-param">url: str</em><span class="sig-paren">)</span> &#x2192; str</dt>
+<dd><p>Retrieves the domain name from the given URL</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">URLTools</span><span class="o">.</span><span class="n">domain_name</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">)</span>
+<span class="go">&#39;google&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – Any URL with a root domain</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The URL’s domain name</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raises ValueError if the URL doesn’t have a root domain</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">static </em><code class="sig-name descname">has_protocol</code><span class="sig-paren">(</span><em class="sig-param">url: str</em><span class="sig-paren">)</span> &#x2192; bool</dt>
+<dd><p>Checks whether or not a URL has a protocol attached</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">URLTools</span><span class="o">.</span><span class="n">has_protocol</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – Any URL</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the URL has a protocol else False</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">static </em><code class="sig-name descname">network_location</code><span class="sig-paren">(</span><em class="sig-param">url: str</em><span class="sig-paren">)</span> &#x2192; str</dt>
+<dd><p>Retrieves the network location from the given URL. Network location includes the
+subdomain, domain_name, and top-level domain.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">URLTools</span><span class="o">.</span><span class="n">network_location</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">)</span>
+<span class="go">&#39;www.google.com&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – Any URL</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The network location for the URL</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">static </em><code class="sig-name descname">protocol</code><span class="sig-paren">(</span><em class="sig-param">url: str</em><span class="sig-paren">)</span> &#x2192; str</dt>
+<dd><p>Retrieves the protocol for the given URL</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">URLTools</span><span class="o">.</span><span class="n">protocol</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">)</span>
+<span class="go">&#39;https&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – Any URL</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The protocol for the given URL</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">static </em><code class="sig-name descname">root_domain</code><span class="sig-paren">(</span><em class="sig-param">url: str</em><span class="sig-paren">)</span> &#x2192; str</dt>
+<dd><p>Retrieves the root domain for a given URL. The root domain consists of the
+domain name and the top-level domain.</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">URLTools</span><span class="o">.</span><span class="n">root_domain</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">)</span>
+<span class="go">&#39;google.com&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – Any URL with a root domain</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The root domain for the given URL</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raises ValueError if the URL doesn’t have a root domain</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">static </em><code class="sig-name descname">subdomain</code><span class="sig-paren">(</span><em class="sig-param">url: str</em><span class="sig-paren">)</span> &#x2192; str</dt>
+<dd><p>Retrieves the subdomain for the given URL</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">URLTools</span><span class="o">.</span><span class="n">domain_name</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">)</span>
+<span class="go">&#39;www&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – Any URL with a root domain</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The subdomain for the given URL</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raises ValueError if the URL doesn’t have a root domain</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<em class="property">static </em><code class="sig-name descname">top_level_domain</code><span class="sig-paren">(</span><em class="sig-param">url: str</em><span class="sig-paren">)</span> &#x2192; str</dt>
+<dd><p>Retrieves the top-level domain for the given URL</p>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">URLTools</span><span class="o">.</span><span class="n">domain_name</span><span class="p">(</span><span class="s1">&#39;https://www.google.com&#39;</span><span class="p">)</span>
+<span class="go">&#39;com&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>url</strong> (<em>str</em>) – Any URL with a root domain</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The top-level domain for the given URL</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raises ValueError if the URL doesn’t have a root domain</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">kelmore_utils</a><ul>
+<li><a class="reference internal" href="#urls">URLs</a></li>
+<li><a class="reference internal" href="#install">Install</a><ul>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#urltools">URLTools</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pages/urls.html"
+                        title="next chapter">URLTools</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pages/urls.html" title="URLTools"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">URLs 1.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Kyle Elmore.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
